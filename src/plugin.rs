@@ -2,14 +2,14 @@ use vst::buffer::AudioBuffer;
 use vst::plugin::{Info, Plugin};
 use vst::plugin_main;
 
-// Struct that will hold the plugin state
-struct GainPlugin {
+// Definimos la estructura del plugin
+pub struct GainPlugin {
     gain: f32,
 }
 
 impl Default for GainPlugin {
     fn default() -> Self {
-        GainPlugin { gain: 0.5 } // Default gain
+        GainPlugin { gain: 0.5 } // Ganancia inicial al 50%
     }
 }
 
@@ -18,7 +18,7 @@ impl Plugin for GainPlugin {
         Info {
             name: "BasicGainPlugin".to_string(),
             vendor: "YourName".to_string(),
-            unique_id: 243723073, // Random unique ID
+            unique_id: 243723073, // ID único aleatorio
             version: 1,
             inputs: 2,
             outputs: 2,
@@ -39,7 +39,7 @@ impl Plugin for GainPlugin {
 
     fn set_parameter(&mut self, index: i32, value: f32) {
         if index == 0 {
-            // We only have one parameter
+            // Solo tenemos un parámetro: ganancia
             self.gain = value;
         }
     }
@@ -61,5 +61,5 @@ impl Plugin for GainPlugin {
     }
 }
 
-// Macro to make this a VST plugin
+// Macro que define este código como un plugin VST
 plugin_main!(GainPlugin);
