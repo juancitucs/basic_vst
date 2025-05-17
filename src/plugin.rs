@@ -17,7 +17,7 @@ impl Plugin for GainPlugin {
         Info {
             name: "BasicGainPlugin".to_string(),
             vendor: "YourName".to_string(),
-            unique_id: 243723073, // ID único aleatorio
+            unique_id: 243723073,
             version: 1,
             inputs: 2,
             outputs: 2,
@@ -38,7 +38,6 @@ impl Plugin for GainPlugin {
 
     fn set_parameter(&mut self, index: i32, value: f32) {
         if index == 0 {
-            // Solo tenemos un parámetro: ganancia
             self.gain = value;
         }
     }
