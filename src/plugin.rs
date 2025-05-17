@@ -2,7 +2,6 @@ use vst::buffer::AudioBuffer;
 use vst::plugin::{Info, Plugin};
 use vst::plugin_main;
 
-// Definimos la estructura del plugin
 pub struct GainPlugin {
     gain: f32,
 }
@@ -60,6 +59,5 @@ impl Plugin for GainPlugin {
         }
     }
 }
-
-// Macro que define este código como un plugin VST
+//MACRO VST
 plugin_main!(GainPlugin);
